@@ -184,13 +184,6 @@ a {
   width: 140px;
 }
 
-.add-client,
-.liste-client,
-.depenses,
-.profil {
-  display: flex;
-}
-
 /*  DEPENSES SIDEBAR */
 .depenses-client {
   height: 16%;
@@ -211,13 +204,6 @@ a {
 .depenses-content p {
   margin-left: 4%;
   width: 140px;
-}
-
-.add-client,
-.liste-client,
-.depenses,
-.profil {
-  display: flex;
 }
 
 /*  PROFIL SIDEBAR */
@@ -269,13 +255,6 @@ a {
 .deco-side img {
   height: 24px;
   width: 24px;
-}
-
-.add-client,
-.liste-client,
-.depenses,
-.profil {
-  display: flex;
 }
 
 /*HEADER*/
@@ -345,7 +324,7 @@ header {
 /* CONTAINER 2 */
 
 .container2 {
-  height: 100vh;
+  height: 100%;
   width: 73%;
   margin: 0 auto;
   margin-left: 18.5%;
@@ -501,8 +480,7 @@ footer {
   color: white;
 }
 
-@media only screen and (max-width: 1400px) {
-  
+@media only screen and (min-width: 1400px) {
 }
 
 /* Media query pour les écrans de taille moyenne */
@@ -513,7 +491,7 @@ footer {
   }
 
   .btn-bloc {
-    height: 25%;
+    height: 20%;
   }
 
   .btn-content {
@@ -531,22 +509,313 @@ footer {
   }
 
   .dashboard {
-    height: 12%;
+    height: 15%;
     width: 97%;
   }
 
   .dash-content {
-    margin-right: 10%;
+    margin-right: 20%;
   }
 
   /* ADD CLIENT SIDEBAR */
   .add-client {
-    height: 12%;
+    height: 15%;
     width: 90%;
   }
 
   .add-content {
+    margin-left: 7%;
+  }
+
+  /* LISTE CLIENT SIDEBAR */
+  .liste-client {
+    height: 15%;
+    width: 100%;
+  }
+
+  .liste-content {
+    margin-left: 6%;
+  }
+
+  /*  DEPENSES SIDEBAR */
+  .depenses-client {
+    height: 15%;
+    width: 100%;
+  }
+
+  .depenses-content {
+    margin-left: 5%;
+  }
+
+  /*  PROFIL SIDEBAR */
+  .profil-client {
+    height: 15%;
+    width: 100%;
+  }
+
+  .profil-content {
+    margin-left: 5%;
+  }
+
+  /* DECONNEXION SIDEBAR */
+  .deco-side {
+    height: 15%;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .deco-content {
+    margin-left: 5%;
+  }
+
+  .deco-side img {
+    height: 18px;
+    width: 18px;
+  }
+
+  /*HEADER*/
+
+  .user img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .indic-page {
+    /* margin: auto; */
+    width: 165px;
+    height: 40px;
+  }
+
+  .identif {
+    font-size: 14px;
+  }
+
+  /* CONTAINER 2 */
+
+  .nbr-client-bloc {
+    width: 180px;
+    height: 190px;
+    border-radius: 25px;
+  }
+
+  .nbr-client-bloc p {
+    font-size: 15px;
+    margin-top: -25%;
+  }
+
+  .nbr-client-bloc span {
+    font-size: 44px;
+    margin-top: 10%;
+  }
+
+  .nbr-depenses-bloc {
+    width: 180px;
+    height: 190px;
+    border-radius: 25px;
+  }
+
+  .nbr-depense-content {
+    margin-top: 10%;
+  }
+
+  .nbr-depenses-bloc p {
+    font-size: 15px;
+    text-align: center;
+    width: 70%;
+  }
+
+  .nbr-depenses-bloc span {
+    font-size: 44px;
+  }
+
+  .nbr-reste-bloc {
+    width: 180px;
+    height: 190px;
+    border-radius: 25px;
+  }
+
+  .nbr-reste-bloc p {
+    font-size: 15px;
+    margin-top: -28%;
+  }
+
+  .nbr-reste-bloc span {
+    font-size: 30px;
+    margin-top: 15%;
+  }
+}
+
+/* Media query pour les écrans de petite taille (par exemple, mobile) */
+@media only screen and (max-width: 768px) {
+  /*SIDEBAR*/
+  .logo {
+    font-size: 6px;
+  }
+
+  .btn-bloc {
+    height: 40%;
+  }
+
+  .btn-content {
     margin-left: 10%;
+  }
+
+  .btn-content div img {
+    height: 18px;
+    width: 18px;
+  }
+
+  .rec-indic {
+    width: 5px;
+  }
+
+  .dashboard {
+    width: 90%;
+  }
+
+  .dash-content p {
+    display: none;
+  }
+
+  /* ADD CLIENT SIDEBAR */
+  .add-client {
+    width: 90%;
+  }
+
+  .add-client p {
+    display: none;
+  }
+  .add-content {
+    margin-left: 35%;
+  }
+
+  /* LISTE CLIENT SIDEBAR */
+  .liste-client {
+    width: 90%;
+  }
+
+  .liste-content p {
+    display: none;
+  }
+
+  .liste-content {
+    margin-left: 32%;
+  }
+
+  /*  DEPENSES SIDEBAR */
+  .depenses-client {
+    width: 90%;
+  }
+
+  .depenses-content p {
+    display: none;
+  }
+
+  .depenses-content {
+    margin-left: 60%;
+  }
+
+  /*  PROFIL SIDEBAR */
+  .profil-client {
+    width: 90%;
+  }
+
+  .profil-content p {
+    display: none;
+  }
+  .profil-content {
+    margin-left: 50%;
+  }
+
+  /* DECONNEXION SIDEBAR */
+  .deco-side {
+    height: 15%;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .deco-content p {
+    display: none;
+  }
+  .deco-content {
+    margin-left: 30%;
+  }
+
+  /*HEADER*/
+
+  .user img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .indic-page {
+    /* margin: auto; */
+    width: 105px;
+    height: 40px;
+  }
+
+  .indic-page h1 {
+    font-size: 14px;
+  }
+
+  .identif {
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  /* CONTAINER 2 */
+
+  .container2 {
+    margin-top: 0;
+  }
+
+  .bloc-compteur {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .nbr-client-bloc,
+  .nbr-depenses-bloc,
+  .nbr-reste-bloc {
+    margin-top: 5%;
+    height: 170px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    margin-top: 5%;
+  }
+
+  .bloc-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trait-foot {
+    height: 1px;
+    width: 85%;
+    margin-left: 15%;
+    background-color: white;
+  }
+
+  .copyright p {
+    color: white;
+    font-size: 10px;
+    width: 100%;
+    margin-left: 5%;
   }
 
 
