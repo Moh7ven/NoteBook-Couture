@@ -446,6 +446,7 @@ th {
 }
 
 td {
+  height: 50px;
   text-align: center;
   border-right: 1px solid white;
   border-bottom: 1px solid white;
