@@ -300,6 +300,7 @@ header {
   color: white;
   font-weight: bold;
   box-shadow: 0px 0px 11px rgba(9, 9, 9, 0.503);
+  font-size: 14px;
 }
 
 .identif {
@@ -694,6 +695,7 @@ footer {
   /* CONTAINER 2 */
 
   .container2 {
+    margin-left: 25%;
     margin-top: 10%;
   }
 
@@ -705,6 +707,15 @@ footer {
     gap: 10px;
   }
 
+  .bloc-homme {
+    width: 230px;
+    height: 238px;
+  }
+
+  .bloc-femme {
+    width: 230px;
+    height: 238px;
+  }
   /* FOOTER */
 
   footer {

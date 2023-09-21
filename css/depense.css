@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 0 3px red inset;
+  /* box-shadow: 0 0 3px red inset; */
 }
 
 ::-webkit-scrollbar {
@@ -339,7 +339,6 @@ header {
 
 .nbr-depense-totale {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 295px;
@@ -351,19 +350,30 @@ header {
 
 .nbr-depense-totale p {
   color: white;
-  font-size: 20px;
-  margin-top: -10%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.nbr-depense-total-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .nbr-depense-totale span {
   color: rgba(21, 209, 223, 1);
   font-size: 64px;
-  margin-top: 10%;
 }
 
 .nbr-depense-atteintes-bloc {
   width: 295px;
   height: 212px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(9, 9, 9, 0.37);
   box-shadow: 0px 0px 15px rgba(9, 9, 9, 0.503);
   border-radius: 35px;
@@ -374,19 +384,19 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  gap: 25px;
 }
 
 .nbr-depense-atteintes-bloc p {
   color: white;
   font-size: 20px;
   text-align: center;
-  width: 50%;
+  width: 70%;
 }
 
 .nbr-depense-atteintes-bloc span {
   color: rgba(21, 209, 223, 1);
-  font-size: 64px;
+  font-size: 54px;
 }
 
 .nbr-couvert-bloc {
@@ -401,16 +411,91 @@ header {
   border-radius: 35px;
 }
 
+.nbr-couvert-bloc-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .nbr-couvert-bloc p {
+  text-align: center;
   color: white;
   font-size: 20px;
-  margin-top: -15%;
 }
 
 .nbr-couvert-bloc span {
   color: rgba(21, 209, 223, 1);
   font-size: 48px;
-  margin-top: 15%;
+}
+
+/* ADD DEPENSE */
+
+.form-add-depense {
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 3%;
+  width: 100%;
+}
+
+.form-nom {
+  margin: auto;
+  margin-top: 3%;
+}
+
+.titre-add-depense {
+  width: 141px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.titre-add-depense p {
+  color: white;
+  font-weight: bold;
+}
+
+.desc {
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+.form-somme {
+  margin: auto;
+  margin-top: 7%;
+}
+
+.form-nom,
+.form-somme {
+  width: 200px;
+  /* margin-left: 15%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#nom,
+#somme {
+  width: 100%;
+  height: 42px;
+  border-radius: 25px;
+  border: #15d1df solid 2px;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 3px 7px 15px rgba(0, 0, 0, 0.247);
+  margin-top: 2%;
 }
 
 .text-table {
@@ -418,10 +503,18 @@ header {
 }
 
 .table-bloc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  margin: 0 auto;
   margin-top: 10%;
 }
 
 .table {
+  width: 75%;
 }
 
 table {
@@ -442,7 +535,48 @@ th {
 }
 
 .dernier-td {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   border-right: 0px;
+}
+
+.dernier-td button {
+  width: 128px;
+  height: 42px;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.dernier-td #update {
+  background-color: #15d1df;
+}
+
+.dernier-td #update a {
+  color: white;
+}
+
+.dernier-td #delete {
+  background-color: #d31919;
+}
+
+.dernier-td #delete a{
+  color: white;
+}
+
+#submit {
+  width: 143px;
+  height: 45px;
+  margin: 0 auto;
+  margin-top: 5%;
+  border-radius: 20px;
+  border: 2px solid #15d1df;
+  background-color: rgba(21, 209, 223, 0.26);
+  color: #15d1df;
 }
 
 td {
@@ -601,12 +735,10 @@ footer {
 
   .nbr-depense-totale p {
     font-size: 15px;
-    margin-top: -25%;
   }
 
   .nbr-depense-totale span {
-    font-size: 44px;
-    margin-top: 10%;
+    font-size: 34px;
   }
 
   .nbr-depense-atteintes-bloc {
@@ -616,7 +748,6 @@ footer {
   }
 
   .nbr-depense-atteinte-content {
-    margin-top: 10%;
   }
 
   .nbr-depense-atteintes-bloc p {
@@ -626,7 +757,7 @@ footer {
   }
 
   .nbr-depense-atteintes-bloc span {
-    font-size: 44px;
+    font-size: 34px;
   }
 
   .nbr-couvert-bloc {
@@ -637,12 +768,15 @@ footer {
 
   .nbr-couvert-bloc p {
     font-size: 15px;
-    margin-top: -28%;
   }
 
   .nbr-couvert-bloc span {
-    font-size: 30px;
-    margin-top: 15%;
+    font-size: 34px;
+  }
+
+  /* ADD DEPENSE */
+  .table {
+    width: 100%;
   }
 }
 
@@ -792,6 +926,26 @@ footer {
     height: 170px;
   }
 
+  /* ADD DEPENSE */
+  .dernier-td {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .dernier-td button {
+    width: 50px;
+    height: 22px;
+    border-radius: 5px;
+  }
+
+  .dernier-td button a {
+    font-size: 5px;
+  }
+
+  #delete a {
+    font-size: 5px;
+  }
   /* FOOTER */
 
   footer {

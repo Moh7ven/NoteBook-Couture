@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModeUtilisation-NoteBookCouture</title>
-    <link rel="stylesheet" href="../css/modeUtilisation.css">
+    <!-- <link rel="stylesheet" href="../css/modeUtilisation.css"> -->
+    <link rel="stylesheet" href="../css/popup-supprimer.css" />
 </head>
 <body>
-    
+
+    <h1>Supprimer</h1>
+    <button id=""><a href="#popup-supprimer">Supprimer</a></button>
+
+
+    <div id="popup-supprimer" class="overlay">
+        <div class="overlay-content">
+            <a class="close" href="#">&times;</a>
+            <div class="popup">
+                <div class="content-popup">
+                    <section class="principal">
+                        <div class="container-pop">
+                            <form action="./acceuil.html">
+                                <div class="titre-form-supprimer">
+                                    <img src="../img/alerte.png" alt="logo-alert">
+                                </div>
+                                <div class="element">
+                                    <div class="style-msg-alert">
+                                    <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?</span>
+                                    </div>
+                                    <div class="yesOrNo">
+                                        <div class="no" id="no"> <a href="./connexion.html">Non</a></div>
+                                        <div class="sup" id="supprimer"> <a href="./connexion.html">Oui</a></div>
+                                    </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

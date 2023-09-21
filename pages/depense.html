@@ -5,12 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Depenses-NoteBookCouture</title>
     <link rel="stylesheet" href="../css/depense.css" />
+    <link rel="stylesheet" href="../css/popupAjoutDepense.css"/>
+    <link rel="stylesheet" href="../css/popup-supprimer.css"/>
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
   </head>
   <body>
+      <!-- POPUP EDITER DEPENSE -->
+      <div id="popup-edite-depnses" class="overlay">
+        <div class="overlay-content">
+            <a class="close" href="#">&times;</a>
+            <div class="popup">
+                <div class="content-popup">
+                    <section class="principal">
+                        <div class="container-pop">
+                            <form action="./acceuil.html">
+                                <p class="titre-form">Editer Dépense</p>
+                                <div class="element">
+                                    <div class="style-form">
+                                    <span class="desc">Nom</span>
+                                    <input id="nom-depense" type="text" placeholder="Entrez le nom" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">Somme</span>
+                                    <input id="somme-depense" type="number" placeholder="Entrez la somme"  class="enter"/>
+                                    </div>
+                                    
+                                <div class="save" id="save"> <a href="./connexion.html">Enregistrer</a></div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END POPUP EDITER DEPENSE -->
+
+    <!-- POPUP ALERT SUPPRIMER DEPENSE -->
+    <div id="popup-supprimer" class="overlay">
+      <div class="overlay-content">
+          <a class="close" href="#">&times;</a>
+          <div class="popup">
+              <div class="content-popup">
+                  <section class="principal">
+                      <div class="container-pop">
+                          <form action="./acceuil.html">
+                              <div class="titre-form-supprimer">
+                                  <img src="../img/alerte.png" alt="logo-alert">
+                              </div>
+                              <div class="element">
+                                  <div class="style-msg-alert">
+                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?</span>
+                                  </div>
+                                  <div class="yesOrNo">
+                                      <div class="no" id="no"> <a href="./connexion.html">Non</a></div>
+                                      <div class="sup" id="supprimer"> <a href="./connexion.html">Oui</a></div>
+                                  </div>
+                          </form>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- END POPUP ALERT SUPPRIMER DEPENSE -->
+
+
     <div class="all">
       <section>
         <div class="sidebar">
@@ -108,8 +171,8 @@
             <div class="nbr-depense-totale">
               <div class="nbr-depense-total-content">
                 <p>Nombre totale de dépenses listées.</p>
+                <span>30</span>
               </div>
-              <span>30</span>
             </div>
             <div class="nbr-depense-atteintes-bloc">
               <div class="nbr-depense-atteinte-content">
@@ -118,15 +181,32 @@
               </div>
             </div>
             <div class="nbr-couvert-bloc">
-              <p>Somme des dépenses couverts.</p>
-              <span>10.000frs</span>
+              <div class="nbr-couvert-bloc-content">
+                <p>Somme des dépenses couverts.</p>
+                <span>10.000frs</span>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="table-bloc">
-          <div class="text-table">
-            <p>Ajout recent</p>
+          <div class="ajout-depense">
+            <div class="bloc-form-add-depense">
+              <form class="form-add-depense">
+                <div class="element">
+                  <div class="form-nom">
+                    <div class="titre-add-depense"><p>Ajouter</p></div>
+                    <span class="desc">Nom</span>
+                    <input id="nom" type="nom" />
+                  </div>
+                  <div class="form-somme">
+                    <span class="desc">Somme</span>
+                    <input id="somme" type="number" />
+                  </div>
+                  <button id="submit">Ajouter</button>
+                </div>
+              </form>
+            </div>
           </div>
           <div class="table">
             <table>
@@ -134,14 +214,10 @@
                 <tr>
                   <th>N°</th>
                   <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>N°tel</th>
-                  <th>Date retrait</th>
-                  <th class="dernier-th">Somme versée</th>
+                  <th>Somme</th>
+                  <th class="dernier-th">Options</th>
                 </tr>
                 <tr class="hori-lign">
-                  <th></th>
-                  <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -154,17 +230,19 @@
                   <td>01</td>
                   <td></td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="dernier-td"></td>
+                  <td class="dernier-td">
+                    <button id="update"><a href="#popup-edite-depnses">Mettre à jour</a></button>
+                    <button id="delete"> <a href="#popup-supprimer">Supprimer</a></button>
+                  </td>
                 </tr>
                 <tr>
                   <td>02</td>
                   <td></td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="dernier-td"></td>
+                  <td class="dernier-td">
+                    <button id="update"><a href="#popup-edite-depnses">Mettre à jour</a></button>
+                    <button id="delete"><a href="#popup-supprimer">Supprimer</a></button>
+                  </td>
                 </tr>
               </tbody>
             </table>

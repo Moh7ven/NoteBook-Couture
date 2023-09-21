@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 0 3px red inset;
+  /* box-shadow: 0 0 3px red inset; */
 }
 
 ::-webkit-scrollbar {
@@ -385,15 +385,36 @@ th {
 
 .dernier-td {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  /* gap: 5px; */
+  gap: 50px;
   border-right: 0px;
-  width: 30%;
 }
 
-.dernier-td > div {
-  width: 100%;
+.dernier-td button {
+  width: 128px;
+  height: 42px;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.dernier-td .btn-voirplus {
+  background-color: #15d1df;
+}
+
+.dernier-td .btn-voirplus a {
+  color: white;
+}
+
+.dernier-td .btn-delete {
+  background-color: #d31919;
+}
+
+.dernier-td .btn-delete a {
+  color: white;
 }
 
 td {
@@ -544,6 +565,20 @@ footer {
   }
 
   /* CONTAINER 2 */
+  .table {
+    /* width: 100%; */
+  }
+
+  .dernier-td {
+    flex-wrap: nowrap;
+  }
+
+  .dernier-td button {
+    width: 70px;
+    height: 22px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
 }
 
 /* Media query pour les écrans de petite taille (par exemple, mobile) */
