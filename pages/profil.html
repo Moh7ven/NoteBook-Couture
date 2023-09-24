@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil-NoteBookCouture</title>
     <link rel="stylesheet" href="../css/profil.css" />
+    <link rel="stylesheet" href="../css/popupEditerProfil.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
@@ -101,6 +102,87 @@
         </header>
       </div>
     </div>
+
+     <!-- POPUP-EDITER-PROFIL -->
+
+     <div id="popup-edit-profil" class="overlay">
+      <div class="overlay-content">
+        <a class="close" href="#">&times;</a>
+        <div class="popup">
+          <div class="content-popup">
+            <section class="principal">
+              <div class="container-pop">
+                <form action="./acceuil.html">
+                  <p class="titre-form">Editer son profil</p>
+
+                  <div class="element">
+                    <div class="style-form">
+                      <span class="desc">Nom</span>
+                      <input id="nom-user" type="text" placeholder="Etrez votre nom" class="enter"/>
+                    </div>
+                    
+                    <div class="style-form">
+                      <span class="desc">Prenom</span>
+                      <input
+                        id="prenom-user"
+                        type="text"
+                        placeholder="Entrez votre prenom"
+                        class="enter"
+                      />
+                    </div>
+
+                    <div class="style-form">
+                      <span class="desc">email</span>
+                      <input
+                        id="email-user"
+                        type="text"
+                        class="enter"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="style-form">
+                        <span class="desc">Sexe</span>
+                        <input
+                          id="sexe-user"
+                          type="text"
+                          class="enter"
+                          disabled
+                        />
+                    </div>
+                    
+                    <div class="style-form">
+                        <span class="desc">Mot de passe</span>
+                        <input
+                          id="password-user"
+                          placeholder="Entrez votre mot de passe"
+                          type="password"
+                          class="enter"
+                        />
+                    </div>
+
+                    <div class="style-form">
+                        <span class="desc">Confirmer mot de passe</span>
+                        <input
+                          id="conf-password-user"
+                          placeholder="Confirmer votre mot de passe"
+                          type="password"
+                          class="enter"
+                        />
+                    </div>
+                </div>
+                  <div class="save" id="save">
+                    <a href="./connexion.html">Enregistrer</a>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END POPUP-EDITER-PROFIL -->
+
     <section>
       <div class="container2">
         <div class="card">
@@ -128,7 +210,7 @@
               <span>Masculin</span>
             </div>
             <div class="bloc-button">
-              <button><a href="#">Editer</a></button>
+              <button><a href="#popup-edit-profil">Editer</a></button>
             </div>
           </div>
         </div>

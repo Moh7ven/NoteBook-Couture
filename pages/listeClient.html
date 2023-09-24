@@ -6,6 +6,7 @@
     <title>ListeClient-NoteBookCouture</title>
     <link rel="stylesheet" href="../css/listeClient.css" />
     <link rel="stylesheet" href="../css/popup-supprimer.css" />
+    <link rel="stylesheet" href="../css/popupAjoutClient.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
@@ -41,6 +42,218 @@
       </div>
     </div>
     <!-- END POPUP ALERT SUPPRIMER CLIENT -->
+
+    <!-- POPUP MODIFICATION CLIENT -->
+
+    <!-- POPUP-FORMUMLAIRE-VOIRPLUS-HOMME -->
+
+    <div id="popup-voirplus-homme" class="overlay">
+      <div class="overlay-content">
+          <a class="close" href="#">&times;</a>
+          <div class="popup">
+              <div class="content-popup">
+                  <section class="principal">
+                      <div class="container-pop">
+                          <form action="./acceuil.html">
+                              <p class="titre-form">Plus d'informations ou modifier</p>
+              
+                              <p class="titre-part">Chemise</p>
+                              <div class="element">
+                                  <div class="style-form">
+                                  <span class="desc">P</span>
+                                  <input id="poitrine-hom" type="number" placeholder="Poitrine" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">EP</span>
+                                  <input id="epaule-hom" type="number" placeholder="Epaule"  class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">LM</span>
+                                  <input id="longManche-hom" type="number" placeholder="Longeur Manche" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">TM</span>
+                                  <input id="tourManche-hom" type="number" placeholder="Tour de manche" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">B</span>
+                                  <input id="bassin-hom" type="number" placeholder="Bassin" class="enter"/>
+                                  </div>
+                                  
+                                  <p class="titre-part">Pantalon</p>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">C</span>
+                                  <input id="ceinture-hom" type="number" placeholder="Ceinture" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">CU</span>
+                                  <input id="cuisse" type="number" placeholder="Cuisse" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">LP</span>
+                                  <input id="LongPantalon-hom" type="number" placeholder="Longueur pantalon" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">BP</span>
+                                  <input id="bassinPantalon-hom" type="number" placeholder="Bassin pantalon" class="enter"/>
+                                  </div>
+                                  
+                                  <p class="titre-part">Info Client</p>
+                                  <div class="style-form">
+                                  <span class="desc">Nom</span>
+                                  <input id="nomClient-hom" type="text" placeholder="Nom client" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">Prenom</span>
+                                  <input id="prenomClient-hom" type="text" placeholder="Prenom client" class="enter"/>
+                                  </div>
+
+                                  <div class="style-form">
+                                  <span class="desc">Adresse</span>
+                                  <input id="adresseClient-hom" type="text" placeholder="Lieu d'habitation" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">Téléphone</span>
+                                  <input id="telephone-hom" type="number" placeholder="Numéro de téléphone" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">Somme</span>
+                                  <input id="sommeClient-hom" type="number" placeholder="Somme à payer" class="enter"/>
+                                  </div>
+                                  
+                                  <div class="style-form">
+                                  <span class="desc">Retraire</span>
+                                  <input id="dateRetrait-hom" type="date" placeholder="Date de retrait" class="enter"/>
+                                  </div>
+
+                              <div class="save" id="save"> <a href="./connexion.html">Enregistrer</a></div>
+                          </form>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--END POPUP-FORMUMLAIRE-VOIRPLUS-HOMME -->
+
+
+  <!--POPUP-FORMUMLAIRE-VOIRPLUS-FEMME -->
+
+  <div id="popup-voirplus-femme" class="overlay">
+        <div class="overlay-content">
+            <a class="close" href="#">&times;</a>
+            <div class="popup">
+                <div class="content-popup">
+                    <section class="principal">
+                        <div class="container-pop">
+                            <form action="./acceuil.html">
+                                <p class="titre-form">Plus d'informations ou modifier</p>
+                
+                                <p class="titre-part">Robe ou Camisole</p>
+                                <div class="element">
+                                    <div class="style-form">
+                                    <span class="desc">P</span>
+                                    <input id="poitrine-fem" type="number" placeholder="Poitrine" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">T</span>
+                                    <input id="Taille-fem" type="number" placeholder="Taille"  class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">LT</span>
+                                    <input id="longTaille-fem" type="number" placeholder="Longeur Taille" class="enter"/>
+                                    </div>
+
+                                    <div class="style-form">
+                                    <span class="desc">B</span>
+                                    <input id="bassin-fem" type="number" placeholder="Bassin" class="enter"/>
+                                    </div>
+
+                                    <div class="style-form">
+                                        <span class="desc">LM</span>
+                                        <input id="longManche-fem" type="number" placeholder="Longueur Manche" class="enter"/>
+                                    </div>
+
+                                    <div class="style-form">
+                                        <span class="desc">TM</span>
+                                        <input id="ceinture-fem" type="number" placeholder="ceinture" class="enter"/>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <p class="titre-part">Jupe</p>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">BJ</span>
+                                    <input id="bassinJupe" type="number" placeholder="Bassin Jupe" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">CJ</span>
+                                    <input id="ceintureJupe" type="number" placeholder="Ceinture Jupe" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">LP</span>
+                                    <input id="longueurJupe" type="number" placeholder="Longueur Jupe" class="enter"/>
+                                    </div>
+                                    
+                                    <p class="titre-part">Info Client</p>
+                                    <div class="style-form">
+                                    <span class="desc">Nom</span>
+                                    <input id="nomClient-hom" type="text" placeholder="Nom client" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">Prenom</span>
+                                    <input id="prenomClient-hom" type="text" placeholder="Prenom client" class="enter"/>
+                                    </div>
+
+                                    <div class="style-form">
+                                    <span class="desc">Adresse</span>
+                                    <input id="adresseClient-hom" type="text" placeholder="Lieu d'habitation" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">Téléphone</span>
+                                    <input id="telephone-hom" type="number" placeholder="Numéro de téléphone" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">Somme</span>
+                                    <input id="sommeClient-hom" type="number" placeholder="Somme à payer" class="enter"/>
+                                    </div>
+                                    
+                                    <div class="style-form">
+                                    <span class="desc">Retraire</span>
+                                    <input id="dateRetrait-hom" type="date" placeholder="Date de retrait" class="enter"/>
+                                    </div>
+
+                                <div class="save" id="save"> <a href="./connexion.html">Enregistrer</a></div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!--END POPUP-FORMUMLAIRE-VOIRPLUS-FEMME -->
+
+    <!-- END POPUP MODIFICATION CLIENT -->
 
     <div class="all">
       <section>
@@ -168,7 +381,7 @@
                   <td></td>
                   <td></td>
                   <td class="dernier-td">
-                    <button class="btn-voirplus"><a href="#">Voir plus</a></button>
+                    <button class="btn-voirplus"><a href="#popup-voirplus-homme">Voir plus</a></button>
                     <button class="btn-delete"><a href="#popup-supprimer">Supprimer</a></button>
                   </td>
                 </tr>
@@ -180,7 +393,7 @@
                   <td></td>
                   <td></td>
                   <td class="dernier-td">
-                    <button class="btn-voirplus"><a href="#">Voir plus</a></button>
+                    <button class="btn-voirplus"><a href="#popup-voirplus-homme">Voir plus</a></button>
                     <button class="btn-delete"><a href="#popup-supprimer">Supprimer</a></button>
                   </td>
                 </tr>
@@ -221,7 +434,7 @@
                   <td></td>
                   <td></td>
                   <td class="dernier-td">
-                    <button class="btn-voirplus"><a href="#">Voir plus</a></button>
+                    <button class="btn-voirplus"><a href="#popup-voirplus-femme">Voir plus</a></button>
                     <button class="btn-delete"><a href="#popup-supprimer">Supprimer</a></button>
                   </td>
                 </tr>
@@ -233,7 +446,7 @@
                   <td></td>
                   <td></td>
                   <td class="dernier-td">
-                    <button class="btn-voirplus"><a href="#">Voir plus</a></button>
+                    <button class="btn-voirplus"><a href="#popup-voirplus-femme">Voir plus</a></button>
                     <button class="btn-delete"><a href="#popup-supprimer">Supprimer</a></button>
                   </td>
                 </tr>

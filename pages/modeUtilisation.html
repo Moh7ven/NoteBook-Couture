@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ModeUtilisation-NoteBookCouture</title>
     <!-- <link rel="stylesheet" href="../css/modeUtilisation.css"> -->
-    <link rel="stylesheet" href="../css/popup-supprimer.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="../css/popupEditerProfil.css" />
+  </head>
+  <body>
+    <h1>POPUP EDITER PROFIL</h1>
+    <button id=""><a href="#popup-edit-profil">EDITER</a></button>
 
-    <h1>Supprimer</h1>
-    <button id=""><a href="#popup-supprimer">Supprimer</a></button>
+    <!-- POPUP-EDITER-PROFIL -->
 
+    <div id="popup-edit-profil" class="overlay">
+      <div class="overlay-content">
+        <a class="close" href="#">&times;</a>
+        <div class="popup">
+          <div class="content-popup">
+            <section class="principal">
+              <div class="container-pop">
+                <form action="./acceuil.html">
+                  <p class="titre-form">Editer son profil</p>
 
-    <div id="popup-supprimer" class="overlay">
-        <div class="overlay-content">
-            <a class="close" href="#">&times;</a>
-            <div class="popup">
-                <div class="content-popup">
-                    <section class="principal">
-                        <div class="container-pop">
-                            <form action="./acceuil.html">
-                                <div class="titre-form-supprimer">
-                                    <img src="../img/alerte.png" alt="logo-alert">
-                                </div>
-                                <div class="element">
-                                    <div class="style-msg-alert">
-                                    <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?</span>
-                                    </div>
-                                    <div class="yesOrNo">
-                                        <div class="no" id="no"> <a href="./connexion.html">Non</a></div>
-                                        <div class="sup" id="supprimer"> <a href="./connexion.html">Oui</a></div>
-                                    </div>
-                            </form>
-                        </div>
-                    </section>
+                  <div class="element">
+                    <div class="style-form">
+                      <span class="desc">Nom</span>
+                      <input id="nom-user" type="text" placeholder="Etrez votre nom" class="enter"/>
+                    </div>
+                    
+                    <div class="style-form">
+                      <span class="desc">Prenom</span>
+                      <input
+                        id="prenom-user"
+                        type="text"
+                        placeholder="Entrez votre prenom"
+                        class="enter"
+                      />
+                    </div>
+
+                    <div class="style-form">
+                      <span class="desc">email</span>
+                      <input
+                        id="email-user"
+                        type="text"
+                        class="enter"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="style-form">
+                        <span class="desc">Sexe</span>
+                        <input
+                          id="sexe-user"
+                          type="text"
+                          class="enter"
+                          disabled
+                        />
+                    </div>
+                    
+                    <div class="style-form">
+                        <span class="desc">Mot de passe</span>
+                        <input
+                          id="password-user"
+                          type="password"
+                          class="enter"
+                        />
+                    </div>
+
+                    <div class="style-form">
+                        <span class="desc">Confirmer mot de passe</span>
+                        <input
+                          id="conf-password-user"
+                          type="password"
+                          class="enter"
+                        />
+                    </div>
                 </div>
-            </div>
+                  <div class="save" id="save">
+                    <a href="./connexion.html">Enregistrer</a>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+    <!--END POPUP-EDITER-PROFIL -->
+  </body>
 </html>
