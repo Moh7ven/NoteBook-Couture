@@ -310,17 +310,17 @@ header {
   align-items: flex-end;
 }
 
-.identif span:nth-child(1) {
-  color: white;
+.identif span:nth-child(2) {
+  color: rgba(255, 255, 255, 0.38);
   font-weight: bold;
 }
 
-.identif span:nth-child(1) span {
+.identif span:nth-child(1) {
   color: rgba(255, 255, 255, 0.38);
 }
 
-.identif span:nth-child(2) {
-  color: rgba(255, 255, 255, 0.38);
+.identif span:nth-child(1) .identName {
+  color: white;
 }
 
 /* CONTAINER 2 */
@@ -419,9 +419,9 @@ header {
 }
 
 .btn-add a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* FOOTER */
 

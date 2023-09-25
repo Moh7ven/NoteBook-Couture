@@ -91,7 +91,10 @@
             </div>
             <div class="user">
               <div class="identif">
-                <span><span>Salut,</span> Mohamed Sangare</span>
+                <span
+                  ><span>Salut,</span>
+                  <span id="identName" class="identName"></span
+                ></span>
                 <span>Couturier</span>
               </div>
               <a href="./profil.html"
@@ -103,9 +106,9 @@
       </div>
     </div>
 
-     <!-- POPUP-EDITER-PROFIL -->
+    <!-- POPUP-EDITER-PROFIL -->
 
-     <div id="popup-edit-profil" class="overlay">
+    <div id="popup-edit-profil" class="overlay">
       <div class="overlay-content">
         <a class="close" href="#">&times;</a>
         <div class="popup">
@@ -118,9 +121,14 @@
                   <div class="element">
                     <div class="style-form">
                       <span class="desc">Nom</span>
-                      <input id="nom-user" type="text" placeholder="Etrez votre nom" class="enter"/>
+                      <input
+                        id="nom-user"
+                        type="text"
+                        placeholder="Etrez votre nom"
+                        class="enter"
+                      />
                     </div>
-                    
+
                     <div class="style-form">
                       <span class="desc">Prenom</span>
                       <input
@@ -142,37 +150,37 @@
                     </div>
 
                     <div class="style-form">
-                        <span class="desc">Sexe</span>
-                        <input
-                          id="sexe-user"
-                          type="text"
-                          class="enter"
-                          disabled
-                        />
-                    </div>
-                    
-                    <div class="style-form">
-                        <span class="desc">Mot de passe</span>
-                        <input
-                          id="password-user"
-                          placeholder="Entrez votre mot de passe"
-                          type="password"
-                          class="enter"
-                        />
+                      <span class="desc">Sexe</span>
+                      <input
+                        id="sexe-user"
+                        type="text"
+                        class="enter"
+                        disabled
+                      />
                     </div>
 
                     <div class="style-form">
-                        <span class="desc">Confirmer mot de passe</span>
-                        <input
-                          id="conf-password-user"
-                          placeholder="Confirmer votre mot de passe"
-                          type="password"
-                          class="enter"
-                        />
+                      <span class="desc">Mot de passe</span>
+                      <input
+                        id="password-user"
+                        placeholder="Entrez votre mot de passe"
+                        type="password"
+                        class="enter"
+                      />
                     </div>
-                </div>
-                  <div class="save" id="save">
-                    <a href="./connexion.html">Enregistrer</a>
+
+                    <div class="style-form">
+                      <span class="desc">Confirmer mot de passe</span>
+                      <input
+                        id="conf-password-user"
+                        placeholder="Confirmer votre mot de passe"
+                        type="password"
+                        class="enter"
+                      />
+                    </div>
+                  </div>
+                  <div class="save" id="save" style="color: white">
+                    Enregistrer
                   </div>
                 </form>
               </div>
@@ -195,19 +203,19 @@
           <div class="bloc-info">
             <div class="bloc-nom">
               <p>Nom</p>
-              <span>Sangare</span>
+              <span id="nomEdit"></span>
             </div>
             <div class="bloc-prenom">
               <p>Prenom</p>
-              <span>Mohamed</span>
+              <span id="prenomEdit"></span>
             </div>
             <div class="bloc-email">
               <p>Email</p>
-              <span>mohamedsangare@gmail.com</span>
+              <span id="emailEdit"></span>
             </div>
             <div class="bloc-sexe">
               <p>Sexe</p>
-              <span>Masculin</span>
+              <span id="sexeEdit"></span>
             </div>
             <div class="bloc-button">
               <button><a href="#popup-edit-profil">Editer</a></button>
@@ -216,5 +224,6 @@
         </div>
       </div>
     </section>
+    <script src="../js/editeProfil.js"></script>
   </body>
 </html>

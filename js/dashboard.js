@@ -1,10 +1,11 @@
 let session = JSON.parse(sessionStorage.getItem("session"));
-let nomPrenom = document.querySelector("#identName").value;
-console.log(session);
+let nomPrenom = document.querySelector("#identName");
+// console.log(session);
 
 if (!session) {
-    nomPrenom.textContent = "";
+  nomPrenom.textContent = "<Vous n'êtes pas connecter>";
   alert("Veuillez vous connecter !");
+  window.location.href = "../pages/connexion.html";
 } else {
-    console.log(nomPrenom)
+  nomPrenom.textContent = `${session.prenomCouturier.toLowerCase()} ${session.nomCouturier.toUpperCase()}`;
 }
