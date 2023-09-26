@@ -430,6 +430,21 @@ td {
   background-color: white;
 }
 
+/* POPUP */
+
+.titre-form-supprimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yesOrNo button{
+  border: none;
+  color: white
+}
+
+
+
 /* FOOTER */
 
 footer {
