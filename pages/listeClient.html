@@ -14,35 +14,6 @@
   </head>
   <body>
 
-    <!-- POPUP ALERT SUPPRIMER CLIENT -->
-    <!-- <div id="popup-supprimer" class="overlay">
-      <div class="overlay-content">
-          <a class="close" href="#">&times;</a>
-          <div class="popup">
-              <div class="content-popup">
-                  <section class="principal">
-                      <div class="container-pop">
-                          <form action="./acceuil.html">
-                              <div class="titre-form-supprimer">
-                                  <img src="../img/alerte.png" alt="logo-alert">
-                              </div>
-                              <div class="element">
-                                  <div class="style-msg-alert">
-                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer ce client ?</span>
-                                  </div>
-                                  <div class="yesOrNo">
-                                      <div class="no" id="no">Non</div>
-                                      <div class="sup" id="supprimer"> >Oui</div>
-                                  </div>
-                          </form>
-                      </div>
-                  </section>
-              </div>
-          </div>
-      </div>
-    </div> -->
-    <!-- END POPUP ALERT SUPPRIMER CLIENT -->
-
     <!-- POPUP MODIFICATION CLIENT -->
 
     <!-- POPUP-FORMUMLAIRE-VOIRPLUS-HOMME -->
@@ -178,17 +149,22 @@
                                     </div>
 
                                     <div class="style-form">
-                                    <span class="desc">B</span>
-                                    <input id="bassin-fem" type="number" placeholder="Bassin" class="enter"/>
-                                    </div>
-
-                                    <div class="style-form">
-                                        <span class="desc">LM</span>
-                                        <input id="longManche-fem" type="number" placeholder="Longueur Manche" class="enter"/>
-                                    </div>
-
-                                    <div class="style-form">
-                                        <span class="desc">TM</span>
+                                      <span class="desc">B</span>
+                                      <input id="bassin-fem" type="number" placeholder="Bassin" class="enter"/>
+                                      </div>
+  
+                                      <div class="style-form">
+                                          <span class="desc">LM</span>
+                                          <input id="longManche-fem" type="number" placeholder="Longueur Manche" class="enter"/>
+                                      </div>
+  
+                                      <div class="style-form">
+                                          <span class="desc">TM</span>
+                                          <input id="tourManche-fem" type="number" placeholder="ceinture" class="enter"/>
+                                      </div>
+                                      
+                                      <div class="style-form">
+                                        <span class="desc">C</span>
                                         <input id="ceinture-fem" type="number" placeholder="ceinture" class="enter"/>
                                     </div>
                                     
@@ -214,35 +190,35 @@
                                     <p class="titre-part">Info Client</p>
                                     <div class="style-form">
                                     <span class="desc">Nom</span>
-                                    <input id="nomClient-hom" type="text" placeholder="Nom client" class="enter"/>
+                                    <input id="nomClient-fem" type="text" placeholder="Nom client" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Prenom</span>
-                                    <input id="prenomClient-hom" type="text" placeholder="Prenom client" class="enter"/>
+                                    <input id="prenomClient-fem" type="text" placeholder="Prenom client" class="enter"/>
                                     </div>
 
                                     <div class="style-form">
                                     <span class="desc">Adresse</span>
-                                    <input id="adresseClient-hom" type="text" placeholder="Lieu d'habitation" class="enter"/>
+                                    <input id="adresseClient-fem" type="text" placeholder="Lieu d'habitation" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Téléphone</span>
-                                    <input id="telephone-hom" type="number" placeholder="Numéro de téléphone" class="enter"/>
+                                    <input id="telephone-fem" type="number" placeholder="Numéro de téléphone" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Somme</span>
-                                    <input id="sommeClient-hom" type="number" placeholder="Somme à payer" class="enter"/>
+                                    <input id="sommeClient-fem" type="number" placeholder="Somme à payer" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Retraire</span>
-                                    <input id="dateRetrait-hom" type="date" placeholder="Date de retrait" class="enter"/>
+                                    <input id="dateRetrait-fem" type="date" placeholder="Date de retrait" class="enter"/>
                                     </div>
 
-                                <div class="save" id="save"> <a href="./connexion.html">Enregistrer</a></div>
+                                <div class="save" id="saveFem"> <a href="./connexion.html">Enregistrer</a></div>
                             </form>
                         </div>
                     </section>
@@ -317,10 +293,10 @@
             </div>
             <div class="deco-side">
               <div class="deco-content">
-                <a href="../index.html"
+                <a id="deconnexion" style="display: flex;"
                   ><img src="../img/deconnexion.png" alt=""
-                /></a>
-                <p>Deconnexion</p>
+                /><p>Deconnexion</p></a>
+                
               </div>
             </div>
           </div>
@@ -395,7 +371,7 @@
         <div class="liste-femme">
           <div class="titre-tableau"><h3>Femme</h3></div>
           <div class="table">
-            <table>
+            <table id="tableFem">
               <thead>
                 <tr>
                   <th>N°</th>
@@ -444,5 +420,6 @@
       </div>
     </footer>
     <script src="../js/listeClient.js"></script>
+    <script src="../js/deconnexion.js"></script>
   </body>
 </html>

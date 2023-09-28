@@ -2,6 +2,7 @@ let session = JSON.parse(sessionStorage.getItem("session"));
 let nomPrenom = document.querySelector("#identName");
 
 let clientHom = JSON.parse(localStorage.getItem("clientHom"));
+let cleintFem = JSON.parse(localStorage.getItem("clientFem"));
 console.log(clientHom);
 // console.log(session);
 
@@ -11,6 +12,12 @@ if (!session) {
   window.location.href = "../pages/connexion.html";
 } else {
   nomPrenom.textContent = `${session.prenomCouturier.toLowerCase()} ${session.nomCouturier.toUpperCase()}`;
+}
+
+let currentDeleteIndexHom;
+
+function setDeleteIndexHom(index) {
+  currentDeleteIndexHom = index;
 }
 
 function showDataHom() {
@@ -26,7 +33,7 @@ function showDataHom() {
   clientHom.forEach((element, index) => {
     html += `
     <tr>
-    <td>${index}</td>
+    <td>${index + 1}</td>
     <td>${element.nomHom}</td>
     <td>${element.prenomHom}</td>
     <td>${element.telephoneHom}</td>
@@ -34,7 +41,7 @@ function showDataHom() {
     <td>${element.sommeHom}</td>
     <td class="dernier-td">
       <button class="btn-voirplus" onclick = "updateDataHom(${index})"><a href="#popup-voirplus-homme">Voir plus</a></button>
-      <button class="btn-delete" ><a href="#popup-supprimer" onclick = "noDelete()">Supprimer</a></button>
+      <button class="btn-delete" ><a href="#popup-supprimer" onclick="setDeleteIndexHom(${index})">Supprimer</a></button>
     </td>
   </tr>
 
@@ -54,7 +61,7 @@ function showDataHom() {
                                   <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer ce client ?</span>
                                   </div>
                                   <div class="yesOrNo">
-                                      <button class="no" id="no">Non</button>
+                                      <button class="no" id="no" onclick = "noDelete()">Non</button>
                                       <button class="sup" id="supprimer" onclick="deleteDataHom(${index})">Oui</button>
                                   </div>
                           </form>
@@ -71,15 +78,101 @@ function showDataHom() {
   document.querySelector("#tableHom tbody").innerHTML = html;
 }
 
+let currentDeleteIndexFem;
+
+function setDeleteIndexFem(index) {
+  currentDeleteIndexFem = index;
+}
+
+function showDataFem() {
+  let htmlFem = "";
+
+  let clientFem;
+  if (localStorage.getItem("clientFem") == null) {
+    clientFem = [];
+  } else {
+    clientFem = JSON.parse(localStorage.getItem("clientFem"));
+  }
+
+  clientFem.forEach((element, index) => {
+    htmlFem += `
+    <tr>
+    <td>${index + 1}</td>
+    <td>${element.nomFem}</td>
+    <td>${element.prenomFem}</td>
+    <td>${element.telephoneFem}</td>
+    <td>${element.dateRetraitFem}</td>
+    <td>${element.sommeFem}</td>
+    <td class="dernier-td">
+      <button class="btn-voirplus" onclick = "updateDataFem(${index})"><a href="#popup-voirplus-femme">Voir plus</a></button>
+      <button class="btn-delete" ><a href="#popup-supprimerFem" onclick="setDeleteIndexFem(${index})">Supprimer</a></button>
+    </td>
+  </tr>
+
+  <div id="popup-supprimerFem" class="overlay">
+      <div class="overlay-content">
+          <a class="close" href="#">&times;</a>
+          <div class="popup">
+              <div class="content-popup">
+                  <section class="principal">
+                      <div class="container-pop">
+                          <form action="./acceuil.html">
+                              <div class="titre-form-supprimer">
+                                  <img src="../img/alerte.png" alt="logo-alert">
+                              </div>
+                              <div class="element">
+                                  <div class="style-msg-alert">
+                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer ce client ?</span>
+                                  </div>
+                                  <div class="yesOrNo">
+                                      <button class="no" id="noFem" onclick = "noDeleteFem()">Non</button>
+                                      <button class="sup" id="supprimerFem" onclick="deleteDataFem(${index})">Oui</button>
+                                  </div>
+                          </form>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    `;
+  });
+  // console.log(htmlFem);
+
+  document.querySelector("#tableFem tbody").innerHTML = htmlFem;
+}
+
 //Charge toutes les données quand le document ou la page aura chargé.
 document.onload = showDataHom();
+document.onload = showDataFem();
 
 function deleteDataHom(index) {
   let clientHom = JSON.parse(localStorage.getItem("clientHom"));
 
-  clientHom.splice(index, 1);
-  localStorage.setItem("clientHom", JSON.stringify(clientHom));
-  showDataHom();
+  if (currentDeleteIndexHom !== undefined) {
+    clientHom.splice(currentDeleteIndexHom, 1);
+    localStorage.setItem("clientHom", JSON.stringify(clientHom));
+    showDataHom();
+  } else {
+    console.error("L'indice de suppression n'est pas défini.");
+  }
+
+  window.location.href = "../pages/listeClient.html";
+}
+
+function deleteDataFem(index) {
+  let clientFem = JSON.parse(localStorage.getItem("clientFem"));
+
+  if (currentDeleteIndexFem !== undefined) {
+    clientFem.splice(currentDeleteIndexFem, 1);
+    localStorage.setItem("clientFem", JSON.stringify(clientFem));
+    showDataFem();
+  } else {
+    console.error("L'indice de suppression n'est pas défini.");
+  }
+
+  window.location.href = "../pages/listeClient.html";
 }
 
 //Ne pas supprimer
@@ -90,9 +183,17 @@ function noDelete() {
   } else {
     clientHom = JSON.parse(localStorage.getItem("clientHom"));
   }
-  document.querySelector("#no").addEventListener("click", (e) => {
-    window.location.href = "../pages/listeClient.html";
-  });
+  window.location.href = "../pages/listeClient.html";
+}
+
+function noDeleteFem() {
+  let clientFem;
+  if (localStorage.getItem("clientFem") == null) {
+    clientFem = [];
+  } else {
+    clientFem = JSON.parse(localStorage.getItem("clientFem"));
+  }
+  window.location.href = "../pages/listeClient.html";
 }
 
 //Fonction pour verifier les données une fois soumis.
@@ -192,6 +293,113 @@ function validateFormMan() {
   return true;
 }
 
+function validateFormFem() {
+  let poitrineFem = document.querySelector("#poitrine-fem").value;
+  let tailleFem = document.querySelector("#Taille-fem").value;
+  let longTailleFem = document.querySelector("#longTaille-fem").value;
+  let bassinFem = document.querySelector("#bassin-fem").value;
+  let longMancheFem = document.querySelector("#longManche-fem").value;
+  let tourMancheFem = document.querySelector("#tourManche-fem").value;
+  let ceintureFem = document.querySelector("#ceinture-fem").value;
+
+  let bassinJupeFem = document.querySelector("#bassinJupe").value;
+  let ceintureJupeFem = document.querySelector("#ceintureJupe").value;
+  let longueurJupeFem = document.querySelector("#longueurJupe").value;
+
+  let nomFem = document.querySelector("#nomClient-fem").value;
+  let prenomFem = document.querySelector("#prenomClient-fem").value;
+  let adresseFem = document.querySelector("#adresseClient-fem").value;
+  let telephoneFem = document.querySelector("#telephone-fem").value;
+  let sommeFem = document.querySelector("#sommeClient-fem").value;
+  let dateRetraitFem = document.querySelector("#dateRetrait-fem").value;
+
+  if (poitrineFem === "") {
+    alert("Veuillez entrer la poitrine de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (tailleFem === "") {
+    alert("Veuillez entrer la taille de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longTailleFem === "") {
+    alert("Veuillez entrer la longueur taille de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (bassinFem === "") {
+    alert("Veuillez entrer le bassin de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longMancheFem === "") {
+    alert(
+      "Veuillez entrer la longueur de manche de la cliente s'il vous plait"
+    );
+    return false;
+  }
+
+  if (tourMancheFem === "") {
+    alert("Veuillez entrer le tour de manche de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (ceintureFem === "") {
+    alert("Veuillez entrer la ceinture de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (bassinJupeFem === "") {
+    alert("Veuillez entrer le bassin de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (ceintureJupeFem === "") {
+    alert("Veuillez entrer la ceinture de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longueurJupeFem === "") {
+    alert("Veuillez entrer la longueur de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (nomFem === "") {
+    alert("Veuillez entrer le Nom de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (prenomFem === "") {
+    alert("Veuillez entrer le Prenom  de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (adresseFem === "") {
+    alert("Veuillez entrer votre l'adresse de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (telephoneFem === "") {
+    alert(
+      "Veuillez entrer le numero de téléphone de la cliente s'il vous plait"
+    );
+    return false;
+  }
+
+  if (sommeFem == "") {
+    alert("Veuillez entrer la somme versée par la cliente s'il vous plait");
+    return false;
+  }
+
+  if ((dateRetraitFem = "")) {
+    alert("Veuillez entrer la somme versée par la cliente s'il vous plait");
+    return false;
+  }
+
+  return true;
+}
+
 function updateDataHom(index) {
   let clientHom = JSON.parse(localStorage.getItem("clientHom"));
 
@@ -262,6 +470,86 @@ function updateDataHom(index) {
       window.location.href = "../pages/listeClient.html";
 
       console.log("page rechargée");
+    }
+  });
+}
+
+function updateDataFem(index) {
+  let clientFem = JSON.parse(localStorage.getItem("clientFem"));
+
+  document.querySelector("#poitrine-fem").value = clientFem[index].poitrineFem;
+  document.querySelector("#Taille-fem").value = clientFem[index].tailleFem;
+  document.querySelector("#longTaille-fem").value =
+    clientFem[index].longTailleFem;
+  document.querySelector("#bassin-fem").value = clientFem[index].bassinFem;
+  document.querySelector("#longManche-fem").value =
+    clientFem[index].longMancheFem;
+  document.querySelector("#tourManche-fem").value =
+    clientFem[index].tourMancheFem;
+  document.querySelector("#ceinture-fem").value = clientFem[index].ceintureFem;
+
+  document.querySelector("#bassinJupe").value = clientFem[index].bassinJupeFem;
+  document.querySelector("#ceintureJupe").value =
+    clientFem[index].ceintureJupeFem;
+  document.querySelector("#longueurJupe").value =
+    clientFem[index].longueurJupeFem;
+
+  document.querySelector("#nomClient-fem").value = clientFem[index].nomFem;
+  document.querySelector("#prenomClient-fem").value =
+    clientFem[index].prenomFem;
+  document.querySelector("#adresseClient-fem").value =
+    clientFem[index].adresseFem;
+  document.querySelector("#telephone-fem").value =
+    clientFem[index].telephoneFem;
+  document.querySelector("#sommeClient-fem").value = clientFem[index].sommeFem;
+  document.querySelector("#dateRetrait-fem").value =
+    clientFem[index].dateRetraitFem;
+
+  let updateClientFem = document.querySelector("#saveFem");
+
+  updateClientFem.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (validateFormFem() === true) {
+      clientFem[index].poitrineFem =
+        document.querySelector("#poitrine-fem").value;
+      clientFem[index].tailleFem = document.querySelector("#Taille-fem").value;
+      clientFem[index].longTailleFem =
+        document.querySelector("#longTaille-fem").value;
+      clientFem[index].bassinFem = document.querySelector("#bassin-fem").value;
+      clientFem[index].longMancheFem =
+        document.querySelector("#longManche-fem").value;
+      clientFem[index].tourMancheFem =
+        document.querySelector("#tourManche-fem").value;
+      clientFem[index].ceintureFem =
+        document.querySelector("#ceinture-fem").value;
+
+      clientFem[index].bassinJupeFem =
+        document.querySelector("#bassinJupe").value;
+      clientFem[index].ceintureJupeFem =
+        document.querySelector("#ceintureJupe").value;
+      clientFem[index].longueurJupeFem =
+        document.querySelector("#longueurJupe").value;
+
+      clientFem[index].nomFem = document.querySelector("#nomClient-fem").value;
+      clientFem[index].prenomFem =
+        document.querySelector("#prenomClient-fem").value;
+      clientFem[index].adresseFem =
+        document.querySelector("#adresseClient-fem").value;
+      clientFem[index].telephoneFem =
+        document.querySelector("#telephone-fem").value;
+      clientFem[index].sommeFem =
+        document.querySelector("#sommeClient-fem").value;
+      clientFem[index].dateRetraitFem =
+        document.querySelector("#dateRetrait-fem").value;
+
+      localStorage.setItem("clientFem", JSON.stringify(clientFem));
+
+      // showDataHom();
+
+      window.location.href = "../pages/listeClient.html";
+
+      // console.log("page rechargée");
     }
   });
 }

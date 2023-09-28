@@ -136,10 +136,9 @@
             </div>
             <div class="deco-side">
               <div class="deco-content">
-                <a href="../index.html"
+                <a id="deconnexion" style="display: flex;"
                   ><img src="../img/deconnexion.png" alt=""
-                /></a>
-                <p>Deconnexion</p>
+                /><p>Deconnexion</p></a>
               </div>
             </div>
           </div>
@@ -174,19 +173,20 @@
             <div class="nbr-depense-totale">
               <div class="nbr-depense-total-content">
                 <p>Nombre totale de dépenses listées.</p>
-                <span>30</span>
+                <span id="tDepList"></span>
               </div>
             </div>
             <div class="nbr-depense-atteintes-bloc">
               <div class="nbr-depense-atteinte-content">
-                <p>Mes dépenses atteintes.</p>
-                <span>30.000frs</span>
+                <p>Somme Totale de mes dépenses.</p>
+                <span><span id="sommeDepense"></span>frs</span>
               </div>
             </div>
             <div class="nbr-couvert-bloc">
               <div class="nbr-couvert-bloc-content">
-                <p>Somme des dépenses couverts.</p>
-                <span>10.000frs</span>
+                <p>Somme des dépenses couvertes.</p>
+                <span><span id="sommeCouvertes"></span>frs</span>
+                <span style="color: white; font-size: calc(0.5rem + 1.5vw);">Soit <span id="depTotal" style="font-size: calc(0.5rem + 1.5vw);"></span> depense(s)</span>
               </div>
             </div>
           </div>
@@ -245,5 +245,6 @@
       </div>
     </footer>
     <script src="../js/depense.js"></script>
+    <script src="../js/deconnexion.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 let session = JSON.parse(sessionStorage.getItem("session"));
 let nomPrenom = document.querySelector("#identName");
 let clientHom = JSON.parse(localStorage.getItem("clientHom"));
+let clientFem = JSON.parse(localStorage.getItem("clientFem"));
 let depense = JSON.parse(localStorage.getItem("depense"));
 
 let nbrClient = document.querySelector("#nbrClient");
@@ -18,10 +19,10 @@ if (!session) {
 console.log(clientHom.length);
 console.log(depense.length);
 
-if (clientHom === "") {
+if (clientHom === "" || clientHom === null) {
   nbrClient.textContent = 0;
 } else {
-  nbrClient.textContent = clientHom.length;
+  nbrClient.textContent = clientHom.length + clientFem.length;
 }
 
 if (depense === "") {
@@ -30,13 +31,20 @@ if (depense === "") {
   nbrDepense.textContent = depense.length;
 }
 
+
+
 function calculSomme() {
-  let resultSommeClient = [];
+  let resultSommeClientHom = [];
+  let resultSommeClientFem = [];
   let resultDepense = [];
   let initialValue = 0;
 
   clientHom.forEach((element) => {
-    resultSommeClient.push(parseInt(element.sommeHom));
+    resultSommeClientHom.push(parseInt(element.sommeHom));
+  });
+
+  clientFem.forEach((element) => {
+    resultSommeClientFem.push(parseInt(element.sommeFem));
   });
 
   depense.forEach((element) => {
@@ -47,13 +55,46 @@ function calculSomme() {
   console.log(resultDepense);
   console.log(totalDepense);
 
-  let argentHom = resultSommeClient.reduce((a, b) => a + b, initialValue)-totalDepense;
+  let argentHom = resultSommeClientHom.reduce((a, b) => a + b, initialValue);
+  let argentFem = resultSommeClientFem.reduce((a, b) => a + b, initialValue);
 
-  if (clientHom === "") {
+  if (clientHom === "" || clientHom === null) {
     sommeReste.textContent = 0;
   } else {
-    sommeReste.textContent = argentHom;
+    sommeReste.textContent = (argentHom + argentFem)-totalDepense;
   }
 }
 
 calculSomme();
+
+function ajoutRecent() {
+  let clientHom = JSON.parse(localStorage.getItem("clientHom")) || [];
+  let clientFem = JSON.parse(localStorage.getItem("clientFem")) || [];
+
+  // console.log('ajoutRecent',clientHom, clientFem);
+
+  //Je fusionne ici les données des deux types de client
+  const tousLesClients = clientHom.concat(clientFem);
+  console.log(tousLesClients);
+
+  // Limiter le nombre de clients à afficher
+  const nombreClientsAffiches = 10;
+  const clientsRecents = tousLesClients.slice(0, nombreClientsAffiches);
+
+  let html = "";
+  console.log(clientsRecents);
+
+  clientsRecents.forEach((element, index) => {
+    html += `<tr>
+    <td>${index+1}</td>
+    <td>${element.nomHom || element.nomFem}</td>
+    <td>${element.prenomHom || element.prenomFem}</td>
+    <td>${element.telephoneHom || element.telephoneFem}</td>
+    <td>${element.dateRetraitHom || element.dateRetraitFem}</td>
+    <td class="dernier-td">${element.sommeHom || element.sommeFem} frs</td>
+  </tr>`;
+  });
+  document.querySelector('#tableRecent tbody').innerHTML = html;
+}
+
+ajoutRecent();

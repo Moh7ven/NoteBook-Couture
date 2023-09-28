@@ -112,6 +112,113 @@ function validateFormMan() {
   return true;
 }
 
+function validateFormFem() {
+  let poitrineFem = document.querySelector("#poitrine-fem").value;
+  let tailleFem = document.querySelector("#Taille-fem").value;
+  let longTailleFem = document.querySelector("#longTaille-fem").value;
+  let bassinFem = document.querySelector("#bassin-fem").value;
+  let longMancheFem = document.querySelector("#longManche-fem").value;
+  let tourMancheFem = document.querySelector("#tourManche-fem").value;
+  let ceintureFem = document.querySelector("#ceinture-fem").value;
+
+  let bassinJupeFem = document.querySelector("#bassinJupe").value;
+  let ceintureJupeFem = document.querySelector("#ceintureJupe").value;
+  let longueurJupeFem = document.querySelector("#longueurJupe").value;
+
+  let nomFem = document.querySelector("#nomClient-fem").value;
+  let prenomFem = document.querySelector("#prenomClient-fem").value;
+  let adresseFem = document.querySelector("#adresseClient-fem").value;
+  let telephoneFem = document.querySelector("#telephone-fem").value;
+  let sommeFem = document.querySelector("#sommeClient-fem").value;
+  let dateRetraitFem = document.querySelector("#dateRetrait-fem").value;
+
+  if (poitrineFem === "") {
+    alert("Veuillez entrer la poitrine de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (tailleFem === "") {
+    alert("Veuillez entrer la taille de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longTailleFem === "") {
+    alert("Veuillez entrer la longueur taille de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (bassinFem === "") {
+    alert("Veuillez entrer le bassin de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longMancheFem === "") {
+    alert(
+      "Veuillez entrer la longueur de manche de la cliente s'il vous plait"
+    );
+    return false;
+  }
+
+  if (tourMancheFem === "") {
+    alert("Veuillez entrer le tour de manche de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (ceintureFem === "") {
+    alert("Veuillez entrer la ceinture de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (bassinJupeFem === "") {
+    alert("Veuillez entrer le bassin de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (ceintureJupeFem === "") {
+    alert("Veuillez entrer la ceinture de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (longueurJupeFem === "") {
+    alert("Veuillez entrer la longueur de jupe de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (nomFem === "") {
+    alert("Veuillez entrer le Nom de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (prenomFem === "") {
+    alert("Veuillez entrer le Prenom  de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (adresseFem === "") {
+    alert("Veuillez entrer votre l'adresse de la cliente s'il vous plait");
+    return false;
+  }
+
+  if (telephoneFem === "") {
+    alert(
+      "Veuillez entrer le numero de téléphone de la cliente s'il vous plait"
+    );
+    return false;
+  }
+
+  if (sommeFem == "") {
+    alert("Veuillez entrer la somme versée par la cliente s'il vous plait");
+    return false;
+  }
+
+  if ((dateRetraitFem = "")) {
+    alert("Veuillez entrer la somme versée par la cliente s'il vous plait");
+    return false;
+  }
+
+  return true;
+}
+
 function addMan() {
   if (validateFormMan() === true) {
     let poitrineHom = document.querySelector("#poitrine-hom").value;
@@ -139,6 +246,7 @@ function addMan() {
       bassinHom: bassinHom,
       ceintureHom: ceintureHom,
       cuisseHom: cuisseHom,
+
       longPantalonHom,
       longPantalonHom,
       bassinPantalonHom: bassinPantalonHom,
@@ -159,7 +267,7 @@ function addMan() {
       clientHom = [];
 
       clientHom.push(data);
-      
+
       localStorage.setItem("clientHom", JSON.stringify(clientHom));
 
       window.location.href = "../pages/ajouterClient.html";
@@ -173,8 +281,78 @@ function addMan() {
   }
 }
 
+function addFem() {
+  if (validateFormFem() === true) {
+    let poitrineFem = document.querySelector("#poitrine-fem").value;
+    let tailleFem = document.querySelector("#Taille-fem").value;
+    let longTailleFem = document.querySelector("#longTaille-fem").value;
+    let bassinFem = document.querySelector("#bassin-fem").value;
+    let longMancheFem = document.querySelector("#longManche-fem").value;
+    let tourMancheFem = document.querySelector("#tourManche-fem").value;
+    let ceintureFem = document.querySelector("#ceinture-fem").value;
+
+    let bassinJupeFem = document.querySelector("#bassinJupe").value;
+    let ceintureJupeFem = document.querySelector("#ceintureJupe").value;
+    let longueurJupeFem = document.querySelector("#longueurJupe").value;
+
+    let nomFem = document.querySelector("#nomClient-fem").value;
+    let prenomFem = document.querySelector("#prenomClient-fem").value;
+    let adresseFem = document.querySelector("#adresseClient-fem").value;
+    let telephoneFem = document.querySelector("#telephone-fem").value;
+    let sommeFem = document.querySelector("#sommeClient-fem").value;
+    let dateRetraitFem = document.querySelector("#dateRetrait-fem").value;
+
+    let data = {
+      poitrineFem: poitrineFem,
+      tailleFem: tailleFem,
+      longTailleFem: longTailleFem,
+      bassinFem: bassinFem,
+      longMancheFem: longMancheFem,
+      tourMancheFem: tourMancheFem,
+      ceintureFem: ceintureFem,
+
+      bassinJupeFem: bassinJupeFem,
+      ceintureJupeFem: ceintureJupeFem,
+      longueurJupeFem: longueurJupeFem,
+
+      nomFem: nomFem,
+      prenomFem: prenomFem,
+      adresseFem: adresseFem,
+      telephoneFem: telephoneFem,
+      sommeFem: sommeFem,
+      dateRetraitFem: dateRetraitFem,
+    };
+
+    console.log(data);
+
+    let clientFem = localStorage.getItem("clientFem");
+
+    if (clientFem === null) {
+      clientFem = [];
+
+      clientFem.push(data);
+
+      localStorage.setItem("clientFem", JSON.stringify(clientFem));
+
+      window.location.href = "../pages/ajouterClient.html";
+    } else {
+      clientFem = JSON.parse(clientFem);
+
+      clientFem.push(data);
+      localStorage.setItem("clientFem", JSON.stringify(clientFem));
+      window.location.href = "../pages/ajouterClient.html";
+    }
+  }
+}
+
 btnMan.addEventListener("click", (e) => {
   e.preventDefault();
   //   validateFormMan();
   addMan();
+});
+
+btnWoman.addEventListener("click", (e) => {
+  e.preventDefault();
+  //   validateFormMan();
+  addFem();
 });

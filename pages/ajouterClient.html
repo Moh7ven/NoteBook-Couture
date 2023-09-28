@@ -72,10 +72,10 @@
             </div>
             <div class="deco-side">
               <div class="deco-content">
-                <a href="../index.html"
+                <a id="deconnexion" style="display: flex;"
                   ><img src="../img/deconnexion.png" alt=""
-                /></a>
-                <p>Deconnexion</p>
+                /><p>Deconnexion</p></a>
+                
               </div>
             </div>
           </div>
@@ -248,9 +248,13 @@
 
                                     <div class="style-form">
                                         <span class="desc">TM</span>
-                                        <input id="ceinture-fem" type="number" placeholder="ceinture" class="enter"/>
+                                        <input id="tourManche-fem" type="number" placeholder="ceinture" class="enter"/>
                                     </div>
                                     
+                                    <div class="style-form">
+                                      <span class="desc">C</span>
+                                      <input id="ceinture-fem" type="number" placeholder="ceinture" class="enter"/>
+                                  </div>
                                     
                                     
                                     <p class="titre-part">Jupe</p>
@@ -273,35 +277,35 @@
                                     <p class="titre-part">Info Client</p>
                                     <div class="style-form">
                                     <span class="desc">Nom</span>
-                                    <input id="nomClient-hom" type="text" placeholder="Nom client" class="enter"/>
+                                    <input id="nomClient-fem" type="text" placeholder="Nom client" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Prenom</span>
-                                    <input id="prenomClient-hom" type="text" placeholder="Prenom client" class="enter"/>
+                                    <input id="prenomClient-fem" type="text" placeholder="Prenom client" class="enter"/>
                                     </div>
 
                                     <div class="style-form">
                                     <span class="desc">Adresse</span>
-                                    <input id="adresseClient-hom" type="text" placeholder="Lieu d'habitation" class="enter"/>
+                                    <input id="adresseClient-fem" type="text" placeholder="Lieu d'habitation" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Téléphone</span>
-                                    <input id="telephone-hom" type="number" placeholder="Numéro de téléphone" class="enter"/>
+                                    <input id="telephone-fem" type="number" placeholder="Numéro de téléphone" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Somme</span>
-                                    <input id="sommeClient-hom" type="number" placeholder="Somme à payer" class="enter"/>
+                                    <input id="sommeClient-fem" type="number" placeholder="Somme à payer" class="enter"/>
                                     </div>
                                     
                                     <div class="style-form">
                                     <span class="desc">Retraire</span>
-                                    <input id="dateRetrait-hom" type="date" placeholder="Date de retrait" class="enter"/>
+                                    <input id="dateRetrait-fem" type="date" placeholder="Date de retrait" class="enter"/>
                                     </div>
 
-                                <div class="save" id="saveWoman"> <a href="./connexion.html">Enregistrer</a></div>
+                                <div class="save" id="saveWoman">Enregistrer</div>
                             </form>
                         </div>
                     </section>
@@ -361,5 +365,6 @@
       </div>
     </footer>
     <script src="../js/ajoutClient.js"></script>
+    <script src="../js/deconnexion.js"></script>
   </body>
 </html>

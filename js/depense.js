@@ -1,6 +1,8 @@
 let session = JSON.parse(sessionStorage.getItem("session"));
 let nomPrenom = document.querySelector("#identName");
 let envoie = document.querySelector("#submit");
+let tDeplist = document.querySelector("#tDepList");
+let sommeDepense = document.querySelector("#sommeDepense");
 
 if (!session) {
   nomPrenom.textContent = "<Vous n'êtes pas connecter>";
@@ -44,6 +46,12 @@ function validateFormDepensesUpdate() {
   return true;
 }
 
+let currentDeleteIndex;
+
+function setDeleteIndex(index) {
+  currentDeleteIndex = index;
+}
+
 function showDataDepense() {
   //   let depense = JSON.parse(localStorage.getItem("depense"));
 
@@ -56,19 +64,18 @@ function showDataDepense() {
     depense = JSON.parse(localStorage.getItem("depense"));
   }
 
-  depense.forEach((element, index) => {
+  depense.forEach((element, indice) => {
     html += `
         <tr>
-        <td>${index}</td>
+        <td>${indice + 1}</td>
         <td>${element.nom}</td>
         <td>${element.somme}</td>
         <td class="dernier-td">
-          <button id="update"><a href="#popup-edite-depnses" onclick="updateDataDepense(${index})">Mettre à jour</a></button>
-          <button id="delete"> <a href="#popup-supprimer">Supprimer</a></button>
+          <button id="update"><a href="#popup-edite-depnses" onclick="updateDataDepense(${indice})">Mettre à jour</a></button>
+          <button id="delete"> <a href="#popup-supprimer-depense"  onclick="setDeleteIndex(${indice})">Supprimer</a></button>
         </td>
-      </tr>
 
-      <div id="popup-supprimer" class="overlay">
+        <div id="popup-supprimer-depense" class="overlay">
       <div class="overlay-content">
           <a class="close" href="#">&times;</a>
           <div class="popup">
@@ -81,11 +88,11 @@ function showDataDepense() {
                               </div>
                               <div class="element">
                                   <div class="style-msg-alert">
-                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?</span>
+                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?/span>
                                   </div>
                                   <div class="yesOrNo">
-                                      <button class="no" id="no">Non</button>
-                                      <button class="sup" id="supprimer" onclick="deleteDataDepense(${index})">Oui</button>
+                                      <button class="no" id="no" onclick = "noDelete()">Non</button>
+                                      <button class="sup" id="supprimer" onclick="deleteDataDepense()">Oui</button>
                                   </div>
                           </form>
                       </div>
@@ -94,6 +101,9 @@ function showDataDepense() {
           </div>
       </div>
     </div>
+      </tr>
+
+      
         `;
   });
   document.querySelector("#tableDepense tbody").innerHTML = html;
@@ -105,9 +115,15 @@ document.onload = showDataDepense();
 function deleteDataDepense(index) {
   let depense = JSON.parse(localStorage.getItem("depense"));
 
-  depense.splice(index, 1);
-  localStorage.setItem("depense", JSON.stringify(depense));
-  showDataDepense();
+  if (currentDeleteIndex !== undefined) {
+    depense.splice(currentDeleteIndex, 1);
+    localStorage.setItem("depense", JSON.stringify(depense));
+    showDataDepense();
+  } else {
+    console.error("L'indice de suppression n'est pas défini.");
+  }
+
+  window.location.href = "../pages/depense.html";
 }
 
 //Ne pas supprimer
@@ -118,9 +134,7 @@ function noDelete() {
   } else {
     depense = JSON.parse(localStorage.getItem("depense"));
   }
-  document.querySelector("#no").addEventListener("click", (e) => {
     window.location.href = "../pages/depense.html";
-  });
 }
 
 function addDepense() {
@@ -152,6 +166,8 @@ function addDepense() {
 
       document.querySelector("#nom").value = "";
       document.querySelector("#somme").value = "";
+
+      window.location.reload();
     }
   }
 }
@@ -181,3 +197,100 @@ function updateDataDepense(index) {
     }
   });
 }
+
+function listeDepenseTotale() {
+  let depense;
+  if (localStorage.getItem("depense") == null) {
+    depense = [];
+  } else {
+    depense = JSON.parse(localStorage.getItem("depense"));
+  }
+
+  if (depense.length === "") {
+    tDeplist.textContent = 0;
+  } else {
+    tDeplist.textContent = depense.length;
+  }
+
+  console.log(depense.length);
+}
+listeDepenseTotale();
+
+function calculSommeDepense() {
+  let depense;
+  if (localStorage.getItem("depense") == null) {
+    depense = [];
+  } else {
+    depense = JSON.parse(localStorage.getItem("depense"));
+  }
+
+  let sommeDepenseRecup = [];
+
+  depense.forEach((element) => {
+    sommeDepenseRecup.push(parseInt(element.somme));
+  });
+
+  let sommeTotalRecup = sommeDepenseRecup.reduce((a, b) => a + b, 0);
+
+  if (depense === "") {
+    sommeDepense.textContent = 0;
+  } else {
+    sommeDepense.textContent = sommeTotalRecup;
+  }
+}
+calculSommeDepense();
+
+function sommeCouvertes() {
+  let clientHom = JSON.parse(localStorage.getItem("clientHom")) || [];
+  let clientFem = JSON.parse(localStorage.getItem("clientFem")) || [];
+  let depense = JSON.parse(localStorage.getItem("depense"));
+
+  // let sommeDepenseRecup = [];
+  let sommeClientHomRecup = [];
+  let sommeClientFemRecup = [];
+
+  clientHom.forEach((element) => {
+    sommeClientHomRecup.push(parseInt(element.sommeHom));
+  });
+  let sommeTotalClientHom = sommeClientHomRecup.reduce((a, b) => a + b, 0);
+
+  clientFem.forEach((element) => {
+    sommeClientFemRecup.push(parseInt(element.sommeFem));
+  });
+  let sommeTotalClientFem = sommeClientFemRecup.reduce((a, b) => a + b, 0);
+
+  const sommeTotalClient = sommeTotalClientHom + sommeTotalClientFem;
+  // console.log(sommeTotalClient);
+
+  let sommeTotalCouverte = 0;
+  let compteur = 0;
+
+  depense.forEach((element, index) => {
+    montantDepense = parseInt(element.somme);
+
+    if (montantDepense <= sommeTotalClient) {
+      sommeTotalCouverte += montantDepense;
+      compteur++;
+    }
+  });
+
+  if (
+    sommeTotalCouverte === "" ||
+    sommeTotalCouverte === null ||
+    sommeTotalCouverte === undefined
+  ) {
+    document.querySelector('#sommeCouvertes').textContent = O;
+    document.querySelector('#depTotal').textContent = 0;
+  }else {
+    document.querySelector('#sommeCouvertes').textContent = sommeTotalCouverte;
+    document.querySelector('#depTotal').textContent = compteur;
+  }
+
+  console.log(sommeTotalCouverte, sommeTotalClient);
+  // let sommeTotalDepense = sommeDepenseRecup.reduce((a, b) => a + b, 0);
+
+  // console.log(sommeTotalClient);
+
+  // console.log(sommeTotalCouverte);
+}
+sommeCouvertes();
