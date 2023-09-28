@@ -4,7 +4,7 @@ function connect() {
   let email = document.querySelector("#email").value;
   let mdp = document.querySelector("#password").value;
 
-  let bdCouturier = JSON.parse(localStorage.getItem("couturier"));
+  let bdCouturier = JSON.parse(localStorage.getItem("couturier")) || [];
   console.log(bdCouturier);
   let result;
 
