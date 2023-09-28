@@ -1,26 +1,33 @@
 let btnConn = document.querySelector("#conn");
-let email = document.querySelector("#email").value;
-let mdp = document.querySelector("#password").value;
+// let email = document.querySelector("#email").value;
+// let mdp = document.querySelector("#password").value;
 
-function validateForm() {
-  if (email === "") {
-    alert("Veuillez entrer votre Email");
-    return false;
-  }
+// function validateForm() {
+//   if (email === "") {
+//     alert("Veuillez entrer votre Email");
+//     return false;
+//   }
 
-  if (mdp === "") {
-    alert("Veuillez entrer votre mot de passe");
-    return false;
-  }
-  return true;
-}
+//   if (mdp === "") {
+//     alert("Veuillez entrer votre mot de passe");
+//     return false;
+//   }
+//   return true;
+// }
 
 function connect() {
-  if (validateForm() === true) {
+  // if (validateForm() === true) {
     let email = document.querySelector("#email").value;
     let mdp = document.querySelector("#password").value;
 
-    let bdCouturier = JSON.parse(localStorage.getItem("couturier")) || [];
+    let bdCouturier = JSON.parse(localStorage.getItem("couturier"));
+
+    if (localStorage.getItem("couturier") == null) {
+      bdCouturier = [];
+    } else {
+      bdCouturier = JSON.parse(localStorage.getItem("couturier"));
+    }
+
     console.log(bdCouturier);
     let result;
 
@@ -40,7 +47,7 @@ function connect() {
         window.location.reload();
       }
     });
-  }
+  // }
 }
 
 // connect();
