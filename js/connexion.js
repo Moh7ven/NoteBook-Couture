@@ -2,18 +2,18 @@ let btnConn = document.querySelector("#conn");
 // let email = document.querySelector("#email").value;
 // let mdp = document.querySelector("#password").value;
 
-// function validateForm() {
-//   if (email === "") {
-//     alert("Veuillez entrer votre Email");
-//     return false;
-//   }
+/* function validateForm() {
+  if (email === "") {
+    alert("Veuillez entrer votre Email");
+    return false;
+  }
 
-//   if (mdp === "") {
-//     alert("Veuillez entrer votre mot de passe");
-//     return false;
-//   }
-//   return true;
-// }
+  if (mdp === "") {
+    alert("Veuillez entrer votre mot de passe");
+    return false;
+  }
+  return true;
+} */
 
 function connect() {
   // if (validateForm() === true) {

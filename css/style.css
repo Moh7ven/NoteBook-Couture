@@ -121,7 +121,7 @@ nav {
 }
 
 .container {
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -285,7 +285,7 @@ nav {
   position: relative;
   margin: 0 auto;
   width: 60%;
-  height: 350px;
+  height: auto;
   border: 1px solid rgba(21, 209, 223, 1);
   border-radius: 25px;
   margin-top: 3%;
@@ -578,7 +578,7 @@ form #message {
   /* ABOUT */
 
   .about-container {
-    height: 380px;
+    height: auto;
   }
 }
 
@@ -692,7 +692,7 @@ form #message {
 
   .about-container {
     width: 80%;
-    height: 350px;
+    height: auto;
     margin-top: 3%;
   }
 

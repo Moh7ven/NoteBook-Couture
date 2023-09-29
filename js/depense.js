@@ -110,7 +110,7 @@ function showDataDepense() {
 }
 
 //Charge toutes les données quand le document ou la page aura chargé.
-document.onload = showDataDepense();ß
+document.onload = showDataDepense();
 
 function deleteDataDepense(index) {
   let depense = JSON.parse(localStorage.getItem("depense"));
