@@ -25,7 +25,7 @@ if (clientHom === "" || clientHom === null) {
   nbrClient.textContent = clientHom.length + clientFem.length;
 }
 
-if (depense === "") {
+if (depense === "" || depense === null) {
   nbrDepense.textContent = 0;
 } else {
   nbrDepense.textContent = depense.length;
