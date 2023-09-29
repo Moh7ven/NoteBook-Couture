@@ -1,8 +1,8 @@
 let session = JSON.parse(sessionStorage.getItem("session"));
 let nomPrenom = document.querySelector("#identName");
-let clientHom = JSON.parse(localStorage.getItem("clientHom"));
-let clientFem = JSON.parse(localStorage.getItem("clientFem"));
-let depense = JSON.parse(localStorage.getItem("depense"));
+let clientHom = JSON.parse(localStorage.getItem("clientHom")) || [];
+let clientFem = JSON.parse(localStorage.getItem("clientFem")) || [];
+let depense = JSON.parse(localStorage.getItem("depense")) || [];
 
 let nbrClient = document.querySelector("#nbrClient");
 let nbrDepense = document.querySelector("#nbrDepense");
@@ -38,6 +38,8 @@ function calculSomme() {
   let resultSommeClientFem = [];
   let resultDepense = [];
   let initialValue = 0;
+
+
 
   clientHom.forEach((element) => {
     resultSommeClientHom.push(parseInt(element.sommeHom));

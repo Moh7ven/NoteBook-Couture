@@ -206,7 +206,7 @@ function listeDepenseTotale() {
     depense = JSON.parse(localStorage.getItem("depense"));
   }
 
-  if (depense.length === "") {
+  if (depense.length === "" || depense.length === null) {
     tDeplist.textContent = 0;
   } else {
     tDeplist.textContent = depense.length;
