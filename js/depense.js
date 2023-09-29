@@ -216,6 +216,7 @@ function listeDepenseTotale() {
 }
 listeDepenseTotale();
 
+
 function calculSommeDepense() {
   let depense;
   if (localStorage.getItem("depense") == null) {
@@ -243,7 +244,7 @@ calculSommeDepense();
 function sommeCouvertes() {
   let clientHom = JSON.parse(localStorage.getItem("clientHom")) || [];
   let clientFem = JSON.parse(localStorage.getItem("clientFem")) || [];
-  let depense = JSON.parse(localStorage.getItem("depense"));
+  let depense = JSON.parse(localStorage.getItem("depense")) || [];
 
   // let sommeDepenseRecup = [];
   let sommeClientHomRecup = [];

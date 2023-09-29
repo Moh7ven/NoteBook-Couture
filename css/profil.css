@@ -344,7 +344,7 @@ header {
 .card {
   position: relative;
   width: 320px;
-  height: 480px;
+  height: auto;
   background-color: white;
   margin: 0 auto;
   border-radius: 15px;
@@ -660,7 +660,7 @@ button a:hover {
 
   .card {
     width: 260px;
-    height: 470px;
+    /* height: 470px; */
     font-size: 13px;
   }
 
