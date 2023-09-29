@@ -16,8 +16,8 @@ if (!session) {
   nomPrenom.textContent = `${session.prenomCouturier.toLowerCase()} ${session.nomCouturier.toUpperCase()}`;
 }
 
-console.log(clientHom.length);
-console.log(depense.length);
+// console.log(clientHom.length);
+// console.log(depense.length);
 
 if (clientHom === "" || clientHom === null) {
   nbrClient.textContent = 0;
