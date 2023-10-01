@@ -88,7 +88,7 @@ function showDataDepense() {
                               </div>
                               <div class="element">
                                   <div class="style-msg-alert">
-                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ?/span>
+                                  <span class="desc">ATTENTION!! Voulez-vous vraimment supprimer cette dépense ? </span>
                                   </div>
                                   <div class="yesOrNo">
                                       <button class="no" id="no" onclick = "noDelete()">Non</button>
@@ -134,7 +134,7 @@ function noDelete() {
   } else {
     depense = JSON.parse(localStorage.getItem("depense"));
   }
-    window.location.href = "../pages/depense.html";
+  window.location.href = "../pages/depense.html";
 }
 
 function addDepense() {
@@ -216,7 +216,6 @@ function listeDepenseTotale() {
 }
 listeDepenseTotale();
 
-
 function calculSommeDepense() {
   let depense;
   if (localStorage.getItem("depense") == null) {
@@ -280,11 +279,11 @@ function sommeCouvertes() {
     sommeTotalCouverte === null ||
     sommeTotalCouverte === undefined
   ) {
-    document.querySelector('#sommeCouvertes').textContent = O;
-    document.querySelector('#depTotal').textContent = 0;
-  }else {
-    document.querySelector('#sommeCouvertes').textContent = sommeTotalCouverte;
-    document.querySelector('#depTotal').textContent = compteur;
+    document.querySelector("#sommeCouvertes").textContent = O;
+    document.querySelector("#depTotal").textContent = 0;
+  } else {
+    document.querySelector("#sommeCouvertes").textContent = sommeTotalCouverte;
+    document.querySelector("#depTotal").textContent = compteur;
   }
 
   console.log(sommeTotalCouverte, sommeTotalClient);
