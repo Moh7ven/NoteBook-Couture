@@ -8,41 +8,46 @@ function validateForm() {
   let sexe = document.querySelector("#sexe").value;
   let mdp = document.querySelector("#password").value;
   let mdpConfir = document.querySelector("#password2").value;
+  let message = document.querySelector("#message");
+
+  message.style.color = "red";
+
   if (nom === "") {
-    alert("Veuillez entrer votre Nom s'il vous plait");
+    message.textContent = "Veuillez entrer votre Nom s'il vous plait";
     return false;
   }
 
   if (prenom === "") {
-    alert("Veuillez entrer votre Prenom s'il vous plait");
+    message.textContent = "Veuillez entrer votre Prenom s'il vous plait";
     return false;
   }
 
   if (email === "") {
-    alert("Veuillez entrer votre Email s'il vous plait");
+    message.textContent = "Veuillez entrer votre Email s'il vous plait";
     return false;
   } else if (!email.includes("@")) {
-    alert("Veuillez entrer une adresse Email valide !");
+    message.textContent = "Veuillez entrer une adresse Email valide !";
     return false;
   }
 
   if (sexe === "") {
-    alert("Veuillez entrer votre Sexe s'il vous plait");
+    message.textContent = "Veuillez entrer votre Sexe s'il vous plait";
     return false;
   }
 
   if (mdp === "") {
-    alert("Veuillez entrer un MOT DE PASSE s'il vous plait");
+    message.textContent = "Veuillez entrer un MOT DE PASSE s'il vous plait";
     return false;
   }
 
   if (mdpConfir == "") {
-    alert("Veuillez Confirmer votre MOT DE PASSE s'il vous plait");
+    message.textContent =
+      "Veuillez Confirmer votre MOT DE PASSE s'il vous plait";
     return false;
   }
 
   if (mdpConfir !== mdp) {
-    alert("Vos mot de passe ne correspondent pas");
+    message.textContent = "Vos mot de passe ne correspondent pas";
     return false;
   }
 

@@ -1,22 +1,29 @@
 let btnConn = document.querySelector("#conn");
-// let email = document.querySelector("#email").value;
-// let mdp = document.querySelector("#password").value;
 
-/* function validateForm() {
+function validateForm() {
+  let email = document.querySelector("#email").value;
+  let mdp = document.querySelector("#password").value;
+  let message = document.querySelector("#message");
+  message.style.color = "red";
+
   if (email === "") {
-    alert("Veuillez entrer votre Email");
+    message.textContent = "Veuillez entrer votre Email";
+    return false;
+  } else if (!email.includes("@")) {
+    message.textContent = "Veuillez entrer une adresse email valide !";
     return false;
   }
 
   if (mdp === "") {
-    alert("Veuillez entrer votre mot de passe");
+    message.textContent = "Veuillez entrer votre mot de passe";
     return false;
   }
+
   return true;
-} */
+}
 
 function connect() {
-  // if (validateForm() === true) {
+  if (validateForm() === true) {
     let email = document.querySelector("#email").value;
     let mdp = document.querySelector("#password").value;
 
@@ -29,8 +36,9 @@ function connect() {
     }
 
     console.log(bdCouturier);
-    let result;
 
+    let result;
+    console.log(typeof result);
     bdCouturier.find((element) => {
       if (
         email === element.emailCouturier &&
@@ -39,15 +47,16 @@ function connect() {
         result = element;
         console.log(result);
       }
-      if (typeof result !== "undefined") {
-        sessionStorage.setItem("session", JSON.stringify(result));
-        window.location.replace("./dashboard.html");
-      } else {
-        alert("Utilisateur inexistant !");
-        window.location.reload();
-      }
     });
-  // }
+
+    if (typeof result !== "undefined") {
+      sessionStorage.setItem("session", JSON.stringify(result));
+      window.location.replace("./dashboard.html");
+    } else {
+      message.textContent = "Email ou mot de passe incorrect !";
+      // window.location.reload();
+    }
+  }
 }
 
 // connect();

@@ -167,6 +167,10 @@ form p {
   font-size: 14px;
 }
 
+#message {
+  text-align: center;
+  margin-top: 2%;
+}
 /* Media query pour les écrans de petite taille (par exemple, mobile) */
 @media only screen and (max-width: 768px) {
   .container {

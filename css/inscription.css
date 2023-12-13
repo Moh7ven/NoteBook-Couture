@@ -166,7 +166,6 @@ form p {
   margin-top: 3%;
   color: white;
   font-size: 16px;
-
 }
 
 /* .conn a {
@@ -180,7 +179,7 @@ form p {
   color: black;
   font-weight: bold;
   border: white solid 2px;
-} 
+}
 
 .ins {
   font-size: 12px;
@@ -197,6 +196,11 @@ form p {
 
 .ins a:hover {
   font-size: 14px;
+}
+
+#message {
+  text-align: center;
+  margin-top: 2%;
 }
 
 /* Media query pour les écrans de petite taille (par exemple, mobile) */
